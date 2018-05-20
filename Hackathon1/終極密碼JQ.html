@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+    crossorigin="anonymous">
+</head>
+
+<body style="font-family:微軟正黑體">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col ">
+
+      </div>
+      <div class="col text-center">
+        <h4>
+          <b>終極密碼</b>
+        </h4>
+        <input type="text" class="form-control" id="guess">
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button type="button" class="btn btn-success btn-lg">1</button>
+        <button type="button" class="btn btn-success btn-lg">2</button>
+        <button type="button" class="btn btn-success btn-lg">3</button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button type="button" class="btn btn-success btn-lg">4</button>
+        <button type="button" class="btn btn-success btn-lg">5</button>
+        <button type="button" class="btn btn-success btn-lg">6</button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button type="button" class="btn btn-success btn-lg">7</button>
+        <button type="button" class="btn btn-success btn-lg">8</button>
+        <button type="button" class="btn btn-success btn-lg">9</button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button type="button" class="btn btn-success btn-lg" id="cmdClean">x</button>
+        <button type="button" class="btn btn-success btn-lg">0</button>
+        <button type="button" class="btn btn-success btn-lg" id="input">
+          <i class="far fa-hand-pointer"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button type="button" class="btn btn-warning btn-lg" id="start">開始遊戲</button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-5">
+
+      </div>
+      <div class="col text-center">
+        猜測次數:
+        <input type="text" class="form-control" id="count">
+      </div>
+      <div class="col-5">
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+      var button = buttons[i];
+      button.onclick = function () {
+        var btn = event.srcElement;
+        document.getElementById("guess").value += btn.innerText;
+        console.log(document.getElementById("guess").value);
+      }
+    }
+
+
+
+    $(function () {
+
+      $("#cmdClean").click(function () {
+        $("#guess").val("");
+      })
+
+      var max;
+      var min;
+      var ans;
+      $("#start").click(function () {
+        ans = Math.floor(Math.random() * 100);
+        max = 100;
+        min = 1;
+        count = 0;
+        $("#guess").val("");
+        $("#count").val(0);
+        console.log(ans);
+      })
+    
+
+    $("#input").click(function () {
+      $("#count").val(++count);
+      if (count == 5) {
+        alert("Game over");
+      }
+      var guess = parseInt($("#guess").val());
+      if (guess == ans) {
+        $("#guess").val("恭喜成功");
+        alert("恭喜成功");
+        max = 100;
+        min = 1;
+      }
+      else if (guess > ans) {
+        if (max > guess) {
+          max = guess;
+        }
+        var Ans1 = "再小一點 !! 介在 :" + min + "~" + max;
+        $("#guess").val(Ans1);
+      } else if (guess < ans) {
+        if (min < guess) {
+          min = guess;
+        }
+        var Ans2 = "再大一點 !! 介在 :" + min + "~" + max;
+        $("#guess").val(Ans2);
+      }
+
+    })
+  })
+
+
+  </script>
+
+</body>
+
+</html>

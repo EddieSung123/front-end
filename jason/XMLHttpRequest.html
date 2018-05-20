@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-bordered">
+            <tr>
+                <td>地點</td>
+                <td>速限(km/h)</td>
+                <td>經度</td>
+                <td>緯度</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var request = new XMLHttpRequest();
+
+       request.open("GET", "http://opendata.hccg.gov.tw/dataset/61a36492-1836-42e6-a719-42f8e20cfc43/resource/d36d7276-1782-42df-90cd-03f4cba9c075/download/20180221120235867.json");
+        
+        request.onload = function () {
+            var items = JSON.parse(this.responseText);
+            var table = document.querySelector("table");
+
+
+            for (var item of items) {
+                var row = document.createElement("tr");
+                var col1 = document.createElement("td");
+                col1.innerText = item["地 點"];
+                var col2 = document.createElement("td");
+                col2.innerText = item["速限(km/h)"];
+                var col3 = document.createElement("td");
+                col3.innerText = item.經度;
+                var col4 = document.createElement("td");
+                col4.innerText = item.緯度;
+                row.appendChild(col1);
+                row.appendChild(col2);
+                row.appendChild(col3);
+                row.appendChild(col4);
+                table.appendChild(row);
+            }
+        }
+        request.send();
+
+
+    </script>
+
+</body>
+
+</html>

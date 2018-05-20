@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <span id="time"></span>
+    <button id="stop">stop</button>
+    <button id="reset">reset</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        
+                var timer = window.setInterval(function () {
+                    var d = new Date();
+                    var Year = d.getFullYear();
+                    var Month = d.getMonth() + 1;
+                    var Dates =d.getDate();
+                    var Hours =d.getHours();
+                    var Minutes =d.getMinutes();
+                    var Seconds = d.getSeconds();
+                    $("#time").text(Year+ '/' +Month+ '/' +Dates+ '/' +Hours+ ':' +Minutes+ ':' +Seconds);
+                }, 1000);
+        
+        
+                $("#stop").click(function (e) {
+                    window.clearInterval(timer);
+                })
+        
+                $("#reset").click(function(e){
+                   window.setInterval(function () {
+                    var d = new Date();
+                    var Year = d.getFullYear();
+                    var Month = d.getMonth() + 1;
+                    var Dates =d.getDate();
+                    var Hours =d.getHours();
+                    var Minutes =d.getMinutes();
+                    var Seconds = d.getSeconds();
+                    $("#time").text(Year+ '/' +Month+ '/' +Dates+ '/' +Hours+ ':' +Minutes+ ':' +Seconds);
+                }, 1000);
+                })
+    
+
+
+    </script>
+
+</body>
+
+</html>
