@@ -20,7 +20,7 @@ https://github.com/EddieSung123/front-end/tree/master/%E5%88%BB%E6%9D%BF%E7%B7%B
 ![Foo](https://github.com/EddieSung123/front-end/blob/master/image/icon.JPG?raw=true)
 ### Timestop : 暫停時間、繼續時間
 ![Foo](https://github.com/EddieSung123/front-end/blob/master/image/time.JPG?raw=true)
-### 年曆 : 使用datepicke
+### 年曆 : 使用datepicker
 ![Foo](https://github.com/EddieSung123/front-end/blob/master/image/year.JPG?raw=true)
 
 
