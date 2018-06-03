@@ -1,7 +1,7 @@
 # front-end 前端實作品集
 ## 資料夾概要
 ### Hackathon1 : 終極密碼
-![Foo](https://github.com/EddieSung123/front-end/blob/master/image/number.JPG?raw=true
+![Foo](https://github.com/EddieSung123/front-end/blob/master/image/number.JPG?raw=true)
 ### json : 政府資料開放平臺，抓取Open data
 ![Foo](https://github.com/EddieSung123/front-end/blob/master/image/Opendata.JPG?raw=true)
 ### Shopee : 刻蝦皮網站
